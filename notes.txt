@@ -1,0 +1,496 @@
+Day 07:ARRAY METHODS
+
+
+Solving problems using array functions on the rest countries' data.
+
+
+==================================================================================
+Get all the countries from the Asia continent /region using the Filter function
+==================================================================================
+var request = new XMLHttpRequest()
+request.open("GET","https://restcountries.com/v3.1/all");
+request.send()
+request.onload=function(){
+    var data = request.response;
+    var result = JSON.parse(data);
+    // var res = result.map((ele) => console.log(ele.continents)  )
+      var res = result.filter((ele) => (ele.continents == "Asia") && (ele.region == "Asia" ) )
+      var res1 = res.map((ele) =>ele.name.common)
+      console.log(res1)
+
+ 
+}
+
+Output:
+
+Maldives
+script.js:9 Pakistan
+script.js:9 Malaysia
+script.js:9 Uzbekistan
+script.js:9 Singapore
+script.js:9 Qatar
+script.js:9 Kazakhstan
+script.js:9 Bahrain
+script.js:9 India
+script.js:9 Macau
+script.js:9 Syria
+script.js:9 Kyrgyzstan
+script.js:9 Palestine
+script.js:9 Taiwan
+script.js:9 South Korea
+script.js:9 Iraq
+script.js:9 Cambodia
+script.js:9 Sri Lanka
+script.js:9 Israel
+script.js:9 Tajikistan
+script.js:9 Azerbaijan
+script.js:9 Georgia
+script.js:9 China
+script.js:9 Thailand
+script.js:9 Indonesia
+script.js:9 Turkmenistan
+script.js:9 Turkey
+script.js:9 Iran
+script.js:9 Lebanon
+script.js:9 Philippines
+script.js:9 Kuwait
+script.js:9 Oman
+script.js:9 Afghanistan
+script.js:9 Armenia
+script.js:9 Bangladesh
+script.js:9 Laos
+script.js:9 Nepal
+script.js:9 Myanmar
+script.js:9 United Arab Emirates
+script.js:9 Bhutan
+script.js:9 Jordan
+script.js:9 Vietnam
+script.js:9 Brunei
+script.js:9 Japan
+script.js:9 Hong Kong
+script.js:9 Saudi Arabia
+script.js:9 North Korea
+script.js:9 Mongolia
+script.js:9 Yemen
+
+
+===================================================================================
+Get all the countries with a population of less than 2 lakhs using Filter function
+===================================================================================
+
+var request = new XMLHttpRequest()
+request.open("GET","https://restcountries.com/v3.1/all");
+request.send()
+request.onload=function(){
+    var data = request.response;
+    var result = JSON.parse(data);
+      var res = result.filter((ele) => ele.population < 200000 )
+      var res1 = res.map((ele) => console.log( ele.name.common))
+    
+
+ 
+}
+
+
+Output:
+Aruba
+script.js:28 Wallis and Futuna
+script.js:28 Åland Islands
+script.js:28 Pitcairn Islands
+script.js:28 Seychelles
+script.js:28 French Southern and Antarctic Lands
+script.js:28 Christmas Island
+script.js:28 Saint Martin
+script.js:28 Heard Island and McDonald Islands
+script.js:28 Antarctica
+script.js:28 Greenland
+script.js:28 British Indian Ocean Territory
+script.js:28 Saint Lucia
+script.js:28 Niue
+script.js:28 Saint Barthélemy
+script.js:28 Grenada
+script.js:28 Isle of Man
+script.js:28 Curaçao
+script.js:28 Dominica
+script.js:28 Faroe Islands
+script.js:28 Montserrat
+script.js:28 Cook Islands
+script.js:28 Bermuda
+script.js:28 San Marino
+script.js:28 Cayman Islands
+script.js:28 Cocos (Keeling) Islands
+script.js:28 United States Virgin Islands
+script.js:28 Norfolk Island
+script.js:28 Nauru
+script.js:28 Bouvet Island
+script.js:28 Micronesia
+script.js:28 American Samoa
+script.js:28 Anguilla
+script.js:28 Marshall Islands
+script.js:28 Kiribati
+script.js:28 Northern Mariana Islands
+script.js:28 Guam
+script.js:28 Gibraltar
+script.js:28 Vatican City
+script.js:28 Jersey
+script.js:28 Tuvalu
+script.js:28 Saint Helena, Ascension and Tristan da Cunha
+script.js:28 Samoa
+script.js:28 Guernsey
+script.js:28 Tonga
+script.js:28 Saint Kitts and Nevis
+script.js:28 Falkland Islands
+script.js:28 Palau
+script.js:28 Turks and Caicos Islands
+script.js:28 British Virgin Islands
+script.js:28 Liechtenstein
+script.js:28 Andorra
+script.js:28 Tokelau
+script.js:28 Sint Maarten
+script.js:28 United States Minor Outlying Islands
+script.js:28 Antigua and Barbuda
+script.js:28 Saint Pierre and Miquelon
+script.js:28 Saint Vincent and the Grenadines
+script.js:28 South Georgia
+script.js:28 Caribbean Netherlands
+script.js:28 Monaco
+script.js:28 Svalbard and Jan Mayen
+
+
+========================================================================
+Print the following details name, capital, flag using forEach function
+========================================================================
+
+
+var request = new XMLHttpRequest()
+request.open("GET","https://restcountries.com/v3.1/all");
+request.send()
+request.onload=function(){
+    var data = request.response;
+    var result = JSON.parse(data);
+    var res = result.forEach((ele) => { console.log(` Name : ${ele.name.common} Capital : ${ele.capital} Flag : ${ele.flag}  `) })
+      
+    
+
+ 
+}
+
+
+Output:
+Name : Mauritania Capital : Nouakchott Flag : 🇲🇷  
+script.js:44  Name : Aruba Capital : Oranjestad Flag : 🇦🇼  
+script.js:44  Name : Argentina Capital : Buenos Aires Flag : 🇦🇷  
+script.js:44  Name : Sweden Capital : Stockholm Flag : 🇸🇪  
+script.js:44  Name : Maldives Capital : Malé Flag : 🇲🇻  
+script.js:44  Name : Mexico Capital : Mexico City Flag : 🇲🇽  
+script.js:44  Name : New Zealand Capital : Wellington Flag : 🇳🇿  
+script.js:44  Name : Ecuador Capital : Quito Flag : 🇪🇨  
+script.js:44  Name : Wallis and Futuna Capital : Mata-Utu Flag : 🇼🇫  
+script.js:44  Name : Åland Islands Capital : Mariehamn Flag : 🇦🇽  
+script.js:44  Name : Montenegro Capital : Podgorica Flag : 🇲🇪  
+script.js:44  Name : Pakistan Capital : Islamabad Flag : 🇵🇰  
+script.js:44  Name : Pitcairn Islands Capital : Adamstown Flag : 🇵🇳  
+script.js:44  Name : Zambia Capital : Lusaka Flag : 🇿🇲  
+script.js:44  Name : Seychelles Capital : Victoria Flag : 🇸🇨  
+script.js:44  Name : Malaysia Capital : Kuala Lumpur Flag : 🇲🇾  
+script.js:44  Name : Norway Capital : Oslo Flag : 🇳🇴  
+script.js:44  Name : Uzbekistan Capital : Tashkent Flag : 🇺🇿  
+script.js:44  Name : Vanuatu Capital : Port Vila Flag : 🇻🇺  
+script.js:44  Name : French Southern and Antarctic Lands Capital : Port-aux-Français Flag : 🇹🇫  
+script.js:44  Name : Christmas Island Capital : Flying Fish Cove Flag : 🇨🇽  
+script.js:44  Name : Singapore Capital : Singapore Flag : 🇸🇬  
+script.js:44  Name : Suriname Capital : Paramaribo Flag : 🇸🇷  
+script.js:44  Name : Western Sahara Capital : El Aaiún Flag : 🇪🇭  
+script.js:44  Name : Saint Martin Capital : Marigot Flag : 🇲🇫  
+script.js:44  Name : Costa Rica Capital : San José Flag : 🇨🇷  
+script.js:44  Name : Heard Island and McDonald Islands Capital : undefined Flag : 🇭🇲  
+script.js:44  Name : Ireland Capital : Dublin Flag : 🇮🇪  
+script.js:44  Name : Antarctica Capital : undefined Flag : 🇦🇶  
+script.js:44  Name : Australia Capital : Canberra Flag : 🇦🇺  
+script.js:44  Name : Libya Capital : Tripoli Flag : 🇱🇾  
+script.js:44  Name : Qatar Capital : Doha Flag : 🇶🇦  
+script.js:44  Name : Greenland Capital : Nuuk Flag : 🇬🇱  
+script.js:44  Name : Mauritius Capital : Port Louis Flag : 🇲🇺  
+script.js:44  Name : Kazakhstan Capital : Nur-Sultan Flag : 🇰🇿  
+script.js:44  Name : British Indian Ocean Territory Capital : Diego Garcia Flag : 🇮🇴  
+script.js:44  Name : Albania Capital : Tirana Flag : 🇦🇱  
+script.js:44  Name : Bahrain Capital : Manama Flag : 🇧🇭  
+script.js:44  Name : Papua New Guinea Capital : Port Moresby Flag : 🇵🇬  
+script.js:44  Name : Burundi Capital : Gitega Flag : 🇧🇮  
+script.js:44  Name : India Capital : New Delhi Flag : 🇮🇳  
+script.js:44  Name : Uruguay Capital : Montevideo Flag : 🇺🇾  
+script.js:44  Name : Saint Lucia Capital : Castries Flag : 🇱🇨  
+script.js:44  Name : Barbados Capital : Bridgetown Flag : 🇧🇧  
+script.js:44  Name : New Caledonia Capital : Nouméa Flag : 🇳🇨  
+script.js:44  Name : Latvia Capital : Riga Flag : 🇱🇻  
+script.js:44  Name : Estonia Capital : Tallinn Flag : 🇪🇪  
+script.js:44  Name : Niue Capital : Alofi Flag : 🇳🇺  
+script.js:44  Name : Saint Barthélemy Capital : Gustavia Flag : 🇧🇱  
+script.js:44  Name : Puerto Rico Capital : San Juan Flag : 🇵🇷  
+script.js:44  Name : Grenada Capital : St. George's Flag : 🇬🇩  
+script.js:44  Name : Macau Capital : undefined Flag : 🇲🇴  
+script.js:44  Name : Cyprus Capital : Nicosia Flag : 🇨🇾  
+script.js:44  Name : Isle of Man Capital : Douglas Flag : 🇮🇲  
+script.js:44  Name : Greece Capital : Athens Flag : 🇬🇷  
+script.js:44  Name : Syria Capital : Damascus Flag : 🇸🇾  
+script.js:44  Name : Lithuania Capital : Vilnius Flag : 🇱🇹  
+script.js:44  Name : Curaçao Capital : Willemstad Flag : 🇨🇼  
+script.js:44  Name : Dominica Capital : Roseau Flag : 🇩🇲  
+script.js:44  Name : Niger Capital : Niamey Flag : 🇳🇪  
+script.js:44  Name : Kyrgyzstan Capital : Bishkek Flag : 🇰🇬  
+script.js:44  Name : Trinidad and Tobago Capital : Port of Spain Flag : 🇹🇹  
+script.js:44  Name : Togo Capital : Lomé Flag : 🇹🇬  
+script.js:44  Name : Palestine Capital : Ramallah,Jerusalem Flag : 🇵🇸  
+script.js:44  Name : Madagascar Capital : Antananarivo Flag : 🇲🇬  
+script.js:44  Name : Croatia Capital : Zagreb Flag : 🇭🇷  
+script.js:44  Name : Faroe Islands Capital : Tórshavn Flag : 🇫🇴  
+script.js:44  Name : Haiti Capital : Port-au-Prince Flag : 🇭🇹  
+script.js:44  Name : Montserrat Capital : Plymouth Flag : 🇲🇸  
+script.js:44  Name : Cook Islands Capital : Avarua Flag : 🇨🇰  
+script.js:44  Name : Timor-Leste Capital : Dili Flag : 🇹🇱  
+script.js:44  Name : Martinique Capital : Fort-de-France Flag : 🇲🇶  
+script.js:44  Name : Cuba Capital : Havana Flag : 🇨🇺  
+script.js:44  Name : Taiwan Capital : Taipei Flag : 🇹🇼  
+script.js:44  Name : Eswatini Capital : Mbabane Flag : 🇸🇿  
+script.js:44  Name : Ukraine Capital : Kyiv Flag : 🇺🇦  
+script.js:44  Name : Bermuda Capital : Hamilton Flag : 🇧🇲  
+script.js:44  Name : South Korea Capital : Seoul Flag : 🇰🇷  
+script.js:44  Name : Peru Capital : Lima Flag : 🇵🇪  
+script.js:44  Name : Iraq Capital : Baghdad Flag : 🇮🇶  
+script.js:44  Name : Moldova Capital : Chișinău Flag : 🇲🇩  
+script.js:44  Name : San Marino Capital : City of San Marino Flag : 🇸🇲  
+script.js:44  Name : Venezuela Capital : Caracas Flag : 🇻🇪  
+script.js:44  Name : Guyana Capital : Georgetown Flag : 🇬🇾  
+script.js:44  Name : Cayman Islands Capital : George Town Flag : 🇰🇾  
+script.js:44  Name : Cambodia Capital : Phnom Penh Flag : 🇰🇭  
+script.js:44  Name : Cocos (Keeling) Islands Capital : West Island Flag : 🇨🇨  
+script.js:44  Name : Malta Capital : Valletta Flag : 🇲🇹  
+script.js:44  Name : Sri Lanka Capital : Sri Jayawardenepura Kotte Flag : 🇱🇰  
+script.js:44  Name : Israel Capital : Jerusalem Flag : 🇮🇱  
+script.js:44  Name : Sudan Capital : Khartoum Flag : 🇸🇩  
+script.js:44  Name : United States Virgin Islands Capital : Charlotte Amalie Flag : 🇻🇮  
+script.js:44  Name : Eritrea Capital : Asmara Flag : 🇪🇷  
+script.js:44  Name : Mali Capital : Bamako Flag : 🇲🇱  
+script.js:44  Name : Somalia Capital : Mogadishu Flag : 🇸🇴  
+script.js:44  Name : Norfolk Island Capital : Kingston Flag : 🇳🇫  
+script.js:44  Name : Comoros Capital : Moroni Flag : 🇰🇲  
+script.js:44  Name : Nicaragua Capital : Managua Flag : 🇳🇮  
+script.js:44  Name : Russia Capital : Moscow Flag : 🇷🇺  
+script.js:44  Name : Uganda Capital : Kampala Flag : 🇺🇬  
+script.js:44  Name : Nauru Capital : Yaren Flag : 🇳🇷  
+script.js:44  Name : Switzerland Capital : Bern Flag : 🇨🇭  
+script.js:44  Name : Portugal Capital : Lisbon Flag : 🇵🇹  
+script.js:44  Name : Tajikistan Capital : Dushanbe Flag : 🇹🇯  
+script.js:44  Name : South Sudan Capital : Juba Flag : 🇸🇸  
+script.js:44  Name : Bouvet Island Capital : undefined Flag : 🇧🇻  
+script.js:44  Name : Micronesia Capital : Palikir Flag : 🇫🇲  
+script.js:44  Name : American Samoa Capital : Pago Pago Flag : 🇦🇸  
+script.js:44  Name : Czechia Capital : Prague Flag : 🇨🇿  
+script.js:44  Name : Botswana Capital : Gaborone Flag : 🇧🇼  
+script.js:44  Name : Tunisia Capital : Tunis Flag : 🇹🇳  
+script.js:44  Name : Anguilla Capital : The Valley Flag : 🇦🇮  
+script.js:44  Name : Guinea-Bissau Capital : Bissau Flag : 🇬🇼  
+script.js:44  Name : Slovakia Capital : Bratislava Flag : 🇸🇰  
+script.js:44  Name : Marshall Islands Capital : Majuro Flag : 🇲🇭  
+script.js:44  Name : Algeria Capital : Algiers Flag : 🇩🇿  
+script.js:44  Name : Jamaica Capital : Kingston Flag : 🇯🇲  
+script.js:44  Name : Mozambique Capital : Maputo Flag : 🇲🇿  
+script.js:44  Name : Spain Capital : Madrid Flag : 🇪🇸  
+script.js:44  Name : Honduras Capital : Tegucigalpa Flag : 🇭🇳  
+script.js:44  Name : Netherlands Capital : Amsterdam Flag : 🇳🇱  
+script.js:44  Name : South Africa Capital : Pretoria,Bloemfontein,Cape Town Flag : 🇿🇦  
+script.js:44  Name : Azerbaijan Capital : Baku Flag : 🇦🇿  
+script.js:44  Name : North Macedonia Capital : Skopje Flag : 🇲🇰  
+script.js:44  Name : Gambia Capital : Banjul Flag : 🇬🇲  
+script.js:44  Name : Liberia Capital : Monrovia Flag : 🇱🇷  
+script.js:44  Name : Luxembourg Capital : Luxembourg Flag : 🇱🇺  
+script.js:44  Name : Cape Verde Capital : Praia Flag : 🇨🇻  
+script.js:44  Name : Bahamas Capital : Nassau Flag : 🇧🇸  
+script.js:44  Name : Georgia Capital : Tbilisi Flag : 🇬🇪  
+script.js:44  Name : Kiribati Capital : South Tarawa Flag : 🇰🇮  
+script.js:44  Name : Tanzania Capital : Dodoma Flag : 🇹🇿  
+script.js:44  Name : China Capital : Beijing Flag : 🇨🇳  
+script.js:44  Name : Guatemala Capital : Guatemala City Flag : 🇬🇹  
+script.js:44  Name : São Tomé and Príncipe Capital : São Tomé Flag : 🇸🇹  
+script.js:44  Name : Germany Capital : Berlin Flag : 🇩🇪  
+script.js:44  Name : Sierra Leone Capital : Freetown Flag : 🇸🇱  
+script.js:44  Name : Chad Capital : N'Djamena Flag : 🇹🇩  
+script.js:44  Name : United Kingdom Capital : London Flag : 🇬🇧  
+script.js:44  Name : Slovenia Capital : Ljubljana Flag : 🇸🇮  
+script.js:44  Name : Thailand Capital : Bangkok Flag : 🇹🇭  
+script.js:44  Name : Indonesia Capital : Jakarta Flag : 🇮🇩  
+script.js:44  Name : Northern Mariana Islands Capital : Saipan Flag : 🇲🇵  
+script.js:44  Name : Guam Capital : Hagåtña Flag : 🇬🇺  
+script.js:44  Name : Finland Capital : Helsinki Flag : 🇫🇮  
+script.js:44  Name : Mayotte Capital : Mamoudzou Flag : 🇾🇹  
+script.js:44  Name : Gibraltar Capital : Gibraltar Flag : 🇬🇮  
+script.js:44  Name : Turkmenistan Capital : Ashgabat Flag : 🇹🇲  
+script.js:44  Name : Kosovo Capital : Pristina Flag : 🇽🇰  
+script.js:44  Name : Ivory Coast Capital : Yamoussoukro Flag : 🇨🇮  
+script.js:44  Name : Morocco Capital : Rabat Flag : 🇲🇦  
+script.js:44  Name : Dominican Republic Capital : Santo Domingo Flag : 🇩🇴  
+script.js:44  Name : Ghana Capital : Accra Flag : 🇬🇭  
+script.js:44  Name : Vatican City Capital : Vatican City Flag : 🇻🇦  
+script.js:44  Name : Jersey Capital : Saint Helier Flag : 🇯🇪  
+script.js:44  Name : Turkey Capital : Ankara Flag : 🇹🇷  
+script.js:44  Name : Tuvalu Capital : Funafuti Flag : 🇹🇻  
+script.js:44  Name : Iran Capital : Tehran Flag : 🇮🇷  
+script.js:44  Name : Egypt Capital : Cairo Flag : 🇪🇬  
+script.js:44  Name : Denmark Capital : Copenhagen Flag : 🇩🇰  
+script.js:44  Name : Kenya Capital : Nairobi Flag : 🇰🇪  
+script.js:44  Name : Bulgaria Capital : Sofia Flag : 🇧🇬  
+script.js:44  Name : Zimbabwe Capital : Harare Flag : 🇿🇼  
+script.js:44  Name : Angola Capital : Luanda Flag : 🇦🇴  
+script.js:44  Name : Nigeria Capital : Abuja Flag : 🇳🇬  
+script.js:44  Name : Poland Capital : Warsaw Flag : 🇵🇱  
+script.js:44  Name : Senegal Capital : Dakar Flag : 🇸🇳  
+script.js:44  Name : Saint Helena, Ascension and Tristan da Cunha Capital : Jamestown Flag : 🇸🇭  
+script.js:44  Name : Lebanon Capital : Beirut Flag : 🇱🇧  
+script.js:44  Name : Samoa Capital : Apia Flag : 🇼🇸  
+script.js:44  Name : Philippines Capital : Manila Flag : 🇵🇭  
+script.js:44  Name : Guernsey Capital : St. Peter Port Flag : 🇬🇬  
+script.js:44  Name : El Salvador Capital : San Salvador Flag : 🇸🇻  
+script.js:44  Name : Kuwait Capital : Kuwait City Flag : 🇰🇼  
+script.js:44  Name : Tonga Capital : Nuku'alofa Flag : 🇹🇴  
+script.js:44  Name : Oman Capital : Muscat Flag : 🇴🇲  
+script.js:44  Name : Afghanistan Capital : Kabul Flag : 🇦🇫  
+script.js:44  Name : Saint Kitts and Nevis Capital : Basseterre Flag : 🇰🇳  
+script.js:44  Name : Central African Republic Capital : Bangui Flag : 🇨🇫  
+script.js:44  Name : Serbia Capital : Belgrade Flag : 🇷🇸  
+script.js:44  Name : Armenia Capital : Yerevan Flag : 🇦🇲  
+script.js:44  Name : Bangladesh Capital : Dhaka Flag : 🇧🇩  
+script.js:44  Name : Laos Capital : Vientiane Flag : 🇱🇦  
+script.js:44  Name : Chile Capital : Santiago Flag : 🇨🇱  
+script.js:44  Name : French Polynesia Capital : Papeetē Flag : 🇵🇫  
+script.js:44  Name : Panama Capital : Panama City Flag : 🇵🇦  
+script.js:44  Name : United States Capital : Washington, D.C. Flag : 🇺🇸  
+script.js:44  Name : Nepal Capital : Kathmandu Flag : 🇳🇵  
+script.js:44  Name : Myanmar Capital : Naypyidaw Flag : 🇲🇲  
+script.js:44  Name : Falkland Islands Capital : Stanley Flag : 🇫🇰  
+script.js:44  Name : Hungary Capital : Budapest Flag : 🇭🇺  
+script.js:44  Name : Palau Capital : Ngerulmud Flag : 🇵🇼  
+script.js:44  Name : Equatorial Guinea Capital : Malabo Flag : 🇬🇶  
+script.js:44  Name : Guinea Capital : Conakry Flag : 🇬🇳  
+script.js:44  Name : United Arab Emirates Capital : Abu Dhabi Flag : 🇦🇪  
+script.js:44  Name : Turks and Caicos Islands Capital : Cockburn Town Flag : 🇹🇨  
+script.js:44  Name : British Virgin Islands Capital : Road Town Flag : 🇻🇬  
+script.js:44  Name : Liechtenstein Capital : Vaduz Flag : 🇱🇮  
+script.js:44  Name : Bosnia and Herzegovina Capital : Sarajevo Flag : 🇧🇦  
+script.js:44  Name : Malawi Capital : Lilongwe Flag : 🇲🇼  
+script.js:44  Name : Bhutan Capital : Thimphu Flag : 🇧🇹  
+script.js:44  Name : Cameroon Capital : Yaoundé Flag : 🇨🇲  
+script.js:44  Name : Andorra Capital : Andorra la Vella Flag : 🇦🇩  
+script.js:44  Name : Guadeloupe Capital : Basse-Terre Flag : 🇬🇵  
+script.js:44  Name : Republic of the Congo Capital : Brazzaville Flag : 🇨🇬  
+script.js:44  Name : Réunion Capital : Saint-Denis Flag : 🇷🇪  
+script.js:44  Name : Burkina Faso Capital : Ouagadougou Flag : 🇧🇫  
+script.js:44  Name : Jordan Capital : Amman Flag : 🇯🇴  
+script.js:44  Name : DR Congo Capital : Kinshasa Flag : 🇨🇩  
+script.js:44  Name : Tokelau Capital : Fakaofo Flag : 🇹🇰  
+script.js:44  Name : Vietnam Capital : Hanoi Flag : 🇻🇳  
+script.js:44  Name : Sint Maarten Capital : Philipsburg Flag : 🇸🇽  
+script.js:44  Name : Belgium Capital : Brussels Flag : 🇧🇪  
+script.js:44  Name : United States Minor Outlying Islands Capital : Washington DC Flag : 🇺🇲  
+script.js:44  Name : Brazil Capital : Brasília Flag : 🇧🇷  
+script.js:44  Name : Belize Capital : Belmopan Flag : 🇧🇿  
+script.js:44  Name : Antigua and Barbuda Capital : Saint John's Flag : 🇦🇬  
+script.js:44  Name : Paraguay Capital : Asunción Flag : 🇵🇾  
+script.js:44  Name : Benin Capital : Porto-Novo Flag : 🇧🇯  
+script.js:44  Name : Brunei Capital : Bandar Seri Begawan Flag : 🇧🇳  
+script.js:44  Name : Bolivia Capital : Sucre Flag : 🇧🇴  
+script.js:44  Name : Djibouti Capital : Djibouti Flag : 🇩🇯  
+script.js:44  Name : French Guiana Capital : Cayenne Flag : 🇬🇫  
+script.js:44  Name : Canada Capital : Ottawa Flag : 🇨🇦  
+script.js:44  Name : Saint Pierre and Miquelon Capital : Saint-Pierre Flag : 🇵🇲  
+script.js:44  Name : Japan Capital : Tokyo Flag : 🇯🇵  
+script.js:44  Name : Rwanda Capital : Kigali Flag : 🇷🇼  
+script.js:44  Name : Saint Vincent and the Grenadines Capital : Kingstown Flag : 🇻🇨  
+script.js:44  Name : Iceland Capital : Reykjavik Flag : 🇮🇸  
+script.js:44  Name : Belarus Capital : Minsk Flag : 🇧🇾  
+script.js:44  Name : Hong Kong Capital : City of Victoria Flag : 🇭🇰  
+script.js:44  Name : Lesotho Capital : Maseru Flag : 🇱🇸  
+script.js:44  Name : Fiji Capital : Suva Flag : 🇫🇯  
+script.js:44  Name : Austria Capital : Vienna Flag : 🇦🇹  
+script.js:44  Name : Colombia Capital : Bogotá Flag : 🇨🇴  
+script.js:44  Name : Gabon Capital : Libreville Flag : 🇬🇦  
+script.js:44  Name : Saudi Arabia Capital : Riyadh Flag : 🇸🇦  
+script.js:44  Name : South Georgia Capital : King Edward Point Flag : 🇬🇸  
+script.js:44  Name : Ethiopia Capital : Addis Ababa Flag : 🇪🇹  
+script.js:44  Name : Caribbean Netherlands Capital : Kralendijk Flag : 🇧🇶  
+script.js:44  Name : Monaco Capital : Monaco Flag : 🇲🇨  
+script.js:44  Name : North Korea Capital : Pyongyang Flag : 🇰🇵  
+script.js:44  Name : Italy Capital : Rome Flag : 🇮🇹  
+script.js:44  Name : Namibia Capital : Windhoek Flag : 🇳🇦  
+script.js:44  Name : Mongolia Capital : Ulan Bator Flag : 🇲🇳  
+script.js:44  Name : Solomon Islands Capital : Honiara Flag : 🇸🇧  
+script.js:44  Name : Yemen Capital : Sana'a Flag : 🇾🇪  
+script.js:44  Name : Romania Capital : Bucharest Flag : 🇷🇴  
+script.js:44  Name : Svalbard and Jan Mayen Capital : Longyearbyen Flag : 🇸🇯  
+script.js:44  Name : France Capital : Paris Flag : 🇫🇷  
+
+
+
+
+==============================================================
+Print the total population of countries using reduce function
+==============================================================
+
+var request = new XMLHttpRequest()
+request.open("GET","https://restcountries.com/v3.1/all");
+request.send()
+request.onload=function(){
+    var data = request.response;
+    var result = JSON.parse(data);
+    var res = result.reduce((acc,cv) => acc+cv.population,0  )
+    console.log( ` Total Population : ${res} `)
+    
+}
+
+Output:
+
+
+ Total Population : 7777721563 
+
+
+
+====================================================
+Print the country which uses US Dollars as currency.
+====================================================
+
+var request = new XMLHttpRequest()
+request.open("GET","https://restcountries.com/v3.1/all");
+request.send()
+request.onload=function(){
+    var data = request.response;
+    var result = JSON.parse(data);
+      var res = result.filter((ele) => (ele.USD == ele.USD ) )
+      var res1 = res.map((ele) => ( ele.name.common))
+    console.log(res1)
+
+}
+
+
+Output:
+
+['Mauritania', 'Aruba', 'Argentina', 'Sweden', 'Maldives', 'Mexico'
+, 'New Zealand', 'Ecuador', 'Wallis and Futuna', 'Åland Islands',
+ 'Montenegro', 'Pakistan', 'Pitcairn Islands', 'Zambia',
+  'Seychelles', 'Malaysia', 'Norway', 'Uzbekistan', 'Vanuatu', 'French Southern and Antarctic Lands',
+   'Christmas Island', 'Singapore', 'Suriname', 'Western Sahara', 'Saint Martin', 
+   'Costa Rica', 'Heard Island and McDonald Islands', 'Ireland', 
+   'Antarctica', 'Australia', 'Libya', 'Qatar', 'Greenland', 'Mauritius', 'Kazakhstan',
+    'British Indian Ocean Territory', 'Albania', 'Bahrain', 'Papua New Guinea', 'Burundi', 
+    'India', 'Uruguay', 'Saint Lucia', 'Barbados', 'New Caledonia', 'Latvia', 'Estonia',
+     'Niue', 'Saint Barthélemy', 'Puerto Rico', 'Grenada', 'Macau', 'Cyprus', 'Isle of Man',
+      'Greece', 'Syria', 'Lithuania', 'Curaçao', 'Dominica', 'Niger', 'Kyrgyzstan', 'Trinidad
+       and Tobago', 'Togo', 'Palestine', 'Madagascar', 'Croatia', 'Faroe Islands', 'Haiti',
+        'Montserrat', 'Cook Islands', 'Timor-Leste', 'Martinique', 'Cuba', 'Taiwan',
+         'Eswatini', 'Ukraine', 'Bermuda', 'South Korea', 'Peru', 'Iraq', 'Moldova', 
+         'San Marino', 'Venezuela', 'Guyana', 'Cayman Islands', 'Cambodia', 
+         'Cocos (Keeling) Islands', 'Malta', 'Sri Lanka', 'Israel', 'Sudan', 
+         'United States Virgin Islands', 'Eritrea', 'Mali', 'Somalia', 'Norfolk Island',
+          'Comoros', 'Nicaragua', 'Russia', 'Uganda', …]
+
+
+
+
