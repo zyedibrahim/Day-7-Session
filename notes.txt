@@ -456,41 +456,44 @@ Output:
 ====================================================
 Print the country which uses US Dollars as currency.
 ====================================================
-
-var request = new XMLHttpRequest()
-request.open("GET","https://restcountries.com/v3.1/all");
+var request = new XMLHttpRequest();
+request.open("GET","https://restcountries.com/v2/all")
 request.send()
 request.onload=function(){
     var data = request.response;
     var result = JSON.parse(data);
-      var res = result.filter((ele) => (ele.USD == ele.USD ) )
-      var res1 = res.map((ele) => ( ele.name.common))
-    console.log(res1)
-
+  var res = result.filter((ele)=>{
+    for (let key in ele.currencies){
+        if(ele.currencies[key].code === "USD"){
+            console.log(ele.name)
+        }
+    }
+  } )
 }
+
+
 
 
 Output:
 
-['Mauritania', 'Aruba', 'Argentina', 'Sweden', 'Maldives', 'Mexico'
-, 'New Zealand', 'Ecuador', 'Wallis and Futuna', 'Åland Islands',
- 'Montenegro', 'Pakistan', 'Pitcairn Islands', 'Zambia',
-  'Seychelles', 'Malaysia', 'Norway', 'Uzbekistan', 'Vanuatu', 'French Southern and Antarctic Lands',
-   'Christmas Island', 'Singapore', 'Suriname', 'Western Sahara', 'Saint Martin', 
-   'Costa Rica', 'Heard Island and McDonald Islands', 'Ireland', 
-   'Antarctica', 'Australia', 'Libya', 'Qatar', 'Greenland', 'Mauritius', 'Kazakhstan',
-    'British Indian Ocean Territory', 'Albania', 'Bahrain', 'Papua New Guinea', 'Burundi', 
-    'India', 'Uruguay', 'Saint Lucia', 'Barbados', 'New Caledonia', 'Latvia', 'Estonia',
-     'Niue', 'Saint Barthélemy', 'Puerto Rico', 'Grenada', 'Macau', 'Cyprus', 'Isle of Man',
-      'Greece', 'Syria', 'Lithuania', 'Curaçao', 'Dominica', 'Niger', 'Kyrgyzstan', 'Trinidad
-       and Tobago', 'Togo', 'Palestine', 'Madagascar', 'Croatia', 'Faroe Islands', 'Haiti',
-        'Montserrat', 'Cook Islands', 'Timor-Leste', 'Martinique', 'Cuba', 'Taiwan',
-         'Eswatini', 'Ukraine', 'Bermuda', 'South Korea', 'Peru', 'Iraq', 'Moldova', 
-         'San Marino', 'Venezuela', 'Guyana', 'Cayman Islands', 'Cambodia', 
-         'Cocos (Keeling) Islands', 'Malta', 'Sri Lanka', 'Israel', 'Sudan', 
-         'United States Virgin Islands', 'Eritrea', 'Mali', 'Somalia', 'Norfolk Island',
-          'Comoros', 'Nicaragua', 'Russia', 'Uganda', …]
-
+American Samoa
+script.js:101 Bonaire, Sint Eustatius and Saba
+script.js:101 British Indian Ocean Territory
+script.js:101 Virgin Islands (British)
+script.js:101 Virgin Islands (U.S.)
+script.js:101 Cambodia
+script.js:101 Ecuador
+script.js:101 El Salvador
+script.js:101 Guam
+script.js:101 Marshall Islands
+script.js:101 Micronesia (Federated States of)
+script.js:101 Northern Mariana Islands
+script.js:101 Palau
+script.js:101 Panama
+script.js:101 Puerto Rico
+script.js:101 Timor-Leste
+script.js:101 Turks and Caicos Islands
+script.js:101 United States of America
 
 
 
